@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card{
+  height: 220px;
+  width: 80wh;
+  background-color: darkkhaki;
+  border-radius: 35px;
+  margin: 5px;
+}
+
+.visited {
+  height: 25px;
+  width: 25px;
+  border-radius: 10px;
+  background-color: red;
+}
+
+.not-visited {
+  height: 25px;
+  width: 25px;
+  border-radius: 10px;
+  background-color: green;
+}
+
+h1 {
+  color: black;
+}
+
+
