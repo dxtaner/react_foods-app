@@ -27,5 +27,21 @@ app.get("/foods", () => {
     fetch(url, options).then(response => response.json()).then(json => res.json(json)).catch(err => console.log("error:" + err));
 });
 
+function notFound(req,res,next){
+    req.status(404)
+    const error = new Error("not found");
+    next(error);
+}
+
+function errorHandler(error,req,res) {
+    res.status(res.statusCode || 500)
+    res.json({
+        message: error.message
+    })
+}
+
+app.use(notFound);
+app.use(errorHandler);
+
 
 app.listen(Port, () => console.log(`server is running ${Port}`));
