@@ -19,9 +19,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1> Favoruite Food</h1>
+      <h1> Favourite Food</h1>
       <div className="food-feed">
-        <Card></Card>
+        {foods?.map(food => <Card key={food.id} food={food} />)}
       </div>
     </div>
   );
