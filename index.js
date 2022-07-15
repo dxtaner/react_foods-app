@@ -1,4 +1,4 @@
-const Port = 8080;
+const Port = 8000;
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -18,22 +18,25 @@ app.use(express.json());
 app.get("/foods", () => {
     const url = process.env.ENDPOINT
     const options = {
-        method: "GET",
+        method: 'GET',
         headers: {
-            Accept: "application/json",
+            Accept: 'application/json',
             'X-Cassandra-Token': process.env.ASTRA_TOKEN
         }
     }
-    fetch(url, options).then(response => response.json()).then(json => res.json(json)).catch(err => console.log("error:" + err));
+    fetch(url, options)
+        .then(response => response.json())
+        .then(json => res.json(json))
+        .catch(err => console.log('error:' + err));
 });
 
-function notFound(req,res,next){
-    req.status(404)
+function notFound(req, res, next) {
+    res.status(404)
     const error = new Error("not found");
     next(error);
 }
 
-function errorHandler(error,req,res) {
+function errorHandler(error, req, res) {
     res.status(res.statusCode || 500)
     res.json({
         message: error.message
