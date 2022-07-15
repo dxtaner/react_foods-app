@@ -3,11 +3,9 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const { response, json } = require("express");
-// const fetch =  require("node-fetch");
+const fetch =  require("node-fetch");
 
 require("dotenv").config();
-
-
 const app = express();
 
 app.use(morgan("tiny"));

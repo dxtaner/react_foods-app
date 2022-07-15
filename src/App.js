@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 import Card from "./components/Card";
 
-
 const App = () => {
 
   const [foods,setFoods] = useState(null);
@@ -16,6 +15,8 @@ const App = () => {
   useEffect(()=>{
     fetchData()
   },[])
+
+  console.log(foods)
 
   return (
     <div className="App">
